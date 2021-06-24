@@ -1,0 +1,7 @@
+<div *ngIf="specifiedNews">
+  <h2>{{specifiedNews.name}} Details</h2>
+  <div>
+    <label for="name">specifiedNews name: </label>
+    <input id="name" [(ngModel)]="specifiedNews.name" placeholder="Name"/>
+  </div>
+</div>
