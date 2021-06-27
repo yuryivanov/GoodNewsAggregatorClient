@@ -30,6 +30,7 @@ export class NewsService {
     return this.apiService.get('News').pipe();
   }
 
+  //Should be verified:
   getNewsWithRSSAddressById(id: UUID): Observable<News>{
 
     var requestUrl = 'News/'+ id;
