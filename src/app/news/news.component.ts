@@ -1,6 +1,6 @@
+import { NewsService } from './../services/news.service';
 import { Component, OnInit } from '@angular/core';
 import { News } from '../../models/news';
-import { NEWS } from 'src/mocks/mock-news';
 
 @Component({
   selector: 'app-news',
@@ -10,14 +10,18 @@ import { NEWS } from 'src/mocks/mock-news';
 
 export class NewsComponent implements OnInit {
 
-  newsCollection: News[] = NEWS;
+  newsCollection: News[] = [];
   selectedNews?: News;
 
-  constructor() {
-
+  constructor(private newsService: NewsService) {
    }
 
   ngOnInit(): void {
+    this.getNews();
+  }
+
+  getNews(): void {
+    this.newsCollection = this.newsService.getNews();
   }
 
   select(news: News): void {

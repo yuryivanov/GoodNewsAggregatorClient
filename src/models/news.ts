@@ -1,6 +1,12 @@
+import { UUID } from 'angular2-uuid';
+
 export interface News {
-  id: number;
-  name: string;
-  summary: string;
-  body: string;
+  id: UUID;
+  title: string;
+  address: string;
+  description: string;
+  publicationDate: string;
+  text: string;
+  goodnessCoefficient: number;
+  rssId: number;
 }
