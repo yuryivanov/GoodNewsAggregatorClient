@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UUID } from 'angular2-uuid';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-news-detail',
@@ -14,6 +15,7 @@ export class NewsDetailComponent implements OnInit {
 
   @Input() specifiedNews?: News;
   specificNews?: News;
+  newsCollection: News[] = [];
 
   constructor(private newsService: NewsService,
     private route: ActivatedRoute) { }
@@ -21,10 +23,7 @@ export class NewsDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.newsService.getNewsWithRSSAddressById(id as UUID)
-    .subscribe(news => console.log(news.title));
-    console.log("TUT");
-    console.log(id);
-    console.log(this.specificNews?.address);
+    .subscribe(news => this.specificNews = news[0]);
   }
 
 }

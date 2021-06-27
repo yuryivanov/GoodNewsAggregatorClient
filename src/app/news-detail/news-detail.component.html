@@ -1,10 +1,39 @@
-<p>TOTOTOT</p>
-  <h2>{{specificNews?.id}} Details</h2>
-  <h2>{{specificNews?.text}} Details</h2>
-  <h2>{{specificNews?.address}} Details</h2>
-  <div>
-  </div>
+  <section id="entity_section" class="entity_section">
+    <div class="container">
+        <div>
+            <div class="entity_wrapper">
+                <div class="entity_meta">
+                    <br/><br/>
+                    <h4 id="single-news-left-header-section">Дата публикации: {{specificNews?.publicationDate | slice:0:10}}</h4>
+                    <h4 id="single-news-left-header-section">Коэффициент: {{specificNews?.goodnessCoefficient}}</h4>
+                    <div class="row">
+                        <h4 id="single-news-left-header-section" class="col-9">Источник: {{specificNews?.address}} </h4>
+                        <a class="col-3" routerLink="/dashboard">На главную</a>
+                    </div>
+                </div><br />
+                <!-- entity_meta -->
 
+                <!-- @if (
+                       (Model.RSS_Id.Equals(new Guid("972036b6-175f-4251-b2d9-296a77b65169")) && (Model.Text == null || !(Model.Text.Contains("</h1>"))))
+                       ||
+                       (Model.RSS_Id.Equals(new Guid("f68ffbd2-3ae5-4e80-be43-6021233c6ec9")) && (Model.Text == null || !(Model.Text.Contains("</h1>"))))
+                       )
+                { -->
+                    <!-- <div class="entity_title">
+                        <h1>@Html.Raw(Model.Title)</h1>
+                    </div> -->
+                    <!-- entity_title -->
+                <!-- } -->
+
+                <div class="entity_content">
+                    <p>
+                      <div [innerHtml]="specificNews?.text"></div>
+                </div>
+                <!-- entity_content -->
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
